@@ -1,10 +1,11 @@
 window.onload = () => {
 
     const fragment = new URLSearchParams(window.location.hash.slice(1));
-    const [accessToken, tokenType] = [fragment.get('access_token'), fragment.get('token_type')];
+    const [accessToken, tokenType, code] = [fragment.get('access_token'), fragment.get('token_type'), fragment.get('code')];
 
     console.log(accessToken);
     console.log(tokenType);
+    console.log(code);
 
     fetch("/sections/navbar.html")
     .then((response) => response.text())
