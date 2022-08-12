@@ -57,6 +57,21 @@
 
                 <div style="padding-top: 1rem;"></div>
 
+                <div id="google-button"></div>
+                <div class="container">
+                    <img src="" alt="profile" class="img">
+                    <div class="name"></div>
+                    <br>
+                    <lable>ID: </lable>
+                    <div class="id"></div>
+                    <br>
+                    <lable>Email: </lable>
+                    <div class="email"></div>
+                    <button onClick="signOut()">Sign Out</button>
+                </div>
+
+                <div style="padding-top: 1rem;"></div>
+
                 <a style="text-decoration: none;" href="https://discord.com/api/oauth2/authorize?client_id=1007687107533361242&redirect_uri=https%3A%2F%2Fcancle5.github.io%2Flogin&response_type=code&scope=identify">
                     <button style="color: rgb(255, 255, 255); background-color: rgb(30, 30, 30);">Discord</button>
                 </a>
@@ -87,41 +102,60 @@
 
     <script>
 
-        window.onload = () => {
+        var googleButton = document.getElementById('google-button');
+        var container = document.getElementsByClassName('container')[0];
+        var img = document.getElementsByClassName('img')[0];
+        var getName = document.getElementsByClassName('name')[0];
+        var id = document.getElementsByClassName('id')[0];
+        var email = document.getElementsByClassName('email')[0];
 
-            const fragment = new URLSearchParams(window.location.hash.slice(1));
-            const [accessToken, tokenType] = [fragment.get('access_token'), fragment.get('token_type')];
+        // function to get response
+        function handleCredentialResponse(response) {
+            const responsePayload = decodeJwtResponse(response.credential);
+            img.src = responsePayload.picture;
+            getName.innerHTML = responsePayload.name;
+            id.innerHTML = responsePayload.sub;
+            email.innerHTML = responsePayload.email;
+            container.style.display = 'inline-block';
+            googleButton.style.display = 'none'
+        }
 
-            console.log(accessToken);
-            console.log(tokenType);
+        window.onload = function () {
+            google.accounts.id.initialize({
+                // replace your client id below
+                client_id: "505525286631-ikfvhpi1up7abec6vbd97mb840qgc43e.apps.googleusercontent.com",
+                callback: handleCredentialResponse,
+                auto_select: true,
+                auto: true
+            });
+            google.accounts.id.renderButton(
+                document.getElementById("google-button"),
+                { theme: "filled_blue", size: "medium", width: '200' }  // customization attributes
+            );
+            // also display the One Tap dialog on right side
+            // important for auto login
+            google.accounts.id.prompt(); 
+        }
 
-            if (localStorage["SiteToken"]) {
-                if (localStorage["SiteTokenType"]) {
+        // function to decode the response.credential
+        function decodeJwtResponse(token) {
+            var base64Url = token.split('.')[1];
+            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            var jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+            return JSON.parse(jsonPayload);
+        }
 
-                    console.log("Logged In | Cookie");
-            
-                    document.getElementById("navbar-textbutton").innerText = "Logged In";
-
-                };
-            };
-
-            if (accessToken) {
-
-                console.log("Logged In | Discord");
-
-                localStorage["SiteToken"] = accessToken;
-
-                localStorage["SiteTokenType"] = tokenType;
-
-                document.getElementById("navbar-textbutton").innerText = "Logged In";
-
-                window.location.href = window.location.href.split('?')[0];
-
-            };
-
-        };   
+        function signOut() {
+            google.accounts.id.disableAutoSelect();
+            // do anything on logout
+            location.reload();
+        }
 
     </script>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 
     <script>
         window['nitroAds'].createAd('NitroPayAnchorAd', {
