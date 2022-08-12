@@ -1,16 +1,16 @@
 window.onload = () => {
 
+    const fragment = new URLSearchParams(window.location.hash.slice(1));
+    const [accessToken, tokenType] = [fragment.get('access_token'), fragment.get('token_type')];
+
+    console.log(accessToken);
+    console.log(tokenType);
+
     fetch("/sections/navbar.html")
     .then((response) => response.text())
     .then((html) => {
 
         document.getElementById("navbar").innerHTML = html;
-
-        const fragment = new URLSearchParams(window.location.hash.slice(1));
-        const [accessToken, tokenType] = [fragment.get('access_token'), fragment.get('token_type')];
-
-        console.log(accessToken);
-        console.log(tokenType);
 
         if (localStorage["SiteToken"]) {
             if (localStorage["SiteTokenType"]) {
