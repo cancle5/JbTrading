@@ -1,49 +1,53 @@
-const fragment = new URLSearchParams(window.location.hash.slice(1));
-const [accessToken, tokenType] = [fragment.get('access_token'), fragment.get('token_type')];
+window.onload = () => {
 
-console.log(window.location.hash);
+    fetch("/sections/navbar.html")
+    .then((response) => response.text())
+    .then((html) => {
 
-console.log(accessToken);
-console.log(tokenType);
+        document.getElementById("navbar").innerHTML = html;
+
+        const fragment = new URLSearchParams(window.location.hash.slice(1));
+        const [accessToken, tokenType] = [fragment.get('access_token'), fragment.get('token_type')];
+
+        console.log(accessToken);
+        console.log(tokenType);
+
+        if (localStorage["SiteToken"]) {
+            if (localStorage["SiteTokenType"]) {
+
+                console.log("Logged In | Cookie");
+        
+                document.getElementById("navbar-textbutton").innerText = "Logged In";
+
+            };
+        };
+
+        if (accessToken) {
+
+            console.log("Logged In | Discord");
+
+            localStorage["SiteToken"] = accessToken;
+
+            localStorage["SiteTokenType"] = tokenType;
+
+            document.getElementById("navbar-textbutton").innerText = "Logged In";
+
+            window.location.href = window.location.href.split('?')[0];
+
+        };
+
+    })
+    .catch((error) => {
+        console.warn(error);
+    });
+
+}    
 
 document.addEventListener('readystatechange', event => { 
 
     if (event.target.readyState === "interactive") {
 
-        fetch("/sections/navbar.html")
-        .then((response) => response.text())
-        .then((html) => {
-
-            document.getElementById("navbar").innerHTML = html;
-
-            if (localStorage["SiteToken"]) {
-                if (localStorage["SiteTokenType"]) {
-
-                    console.log("Logged In | Cookie");
-            
-                    document.getElementById("navbar-textbutton").innerText = "Logged In";
-
-                };
-            };
-    
-            if (accessToken) {
-
-                console.log("Logged In | Discord");
-    
-                localStorage["SiteToken"] = accessToken;
-
-                localStorage["SiteTokenType"] = tokenType;
-
-                document.getElementById("navbar-textbutton").innerText = "Logged In";
-
-                window.location.href = window.location.href.split('?')[0];
-
-            };
-
-        })
-        .catch((error) => {
-            console.warn(error);
-        });
+        
 
     };
 
