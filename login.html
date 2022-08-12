@@ -73,6 +73,10 @@
 
                 <div style="padding-top: 1rem;"></div>
 
+                <img id="ProfilePicture" style="width: 10rem; display: block; margin-left: auto; margin-right: auto;" src="" alt="Profile Picture">
+
+                <div style="padding-top: 1rem;"></div>
+
             </div>
 
         </div>
@@ -97,9 +101,11 @@
 
             const responsePayload = decodeJwtResponse(response.credential);
 
-            var navbarlogintext = document.getElementById('navbar-textbutton')
+            var ProfilePicture = document.getElementById('ProfilePicture')
+            var Navbar_Login_Text = document.getElementById('navbar-textbutton')
 
-            navbarlogintext.innerText = responsePayload.name;
+            ProfilePicture.src = responsePayload.picture;
+            Navbar_Login_Text.innerText = responsePayload.name;
 
         }
 
@@ -112,13 +118,12 @@
             });
             google.accounts.id.renderButton(
                 document.getElementById("google-button"),
-                { theme: "dark", size: "large", width: '190' }  // customization attributes
+                { theme: "dark", size: "large", width: '190' } 
             );
 
             //google.accounts.id.prompt(); 
         }
 
-        // function to decode the response.credential
         function decodeJwtResponse(token) {
             var base64Url = token.split('.')[1];
             var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -130,7 +135,7 @@
 
         function signOut() {
             google.accounts.id.disableAutoSelect();
-            // do anything on logout
+
             location.reload();
         }
 
