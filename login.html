@@ -55,7 +55,7 @@
 
             <div>
 
-                <div style="padding-top: 1rem;"></div>
+                <div style="padding-top: 2rem;"></div>
 
                 <button style="background-color: transparent;">
                     <div id="google-button"></div>
@@ -70,16 +70,6 @@
                 <a style="text-decoration: none;" href="/">
                     <button style="color: rgb(56, 56, 56); background-color: rgb(255, 255, 255);">Return</button>
                 </a>
-
-                <div style="padding-top: 1rem;"></div>
-
-                <div class="container">
-                    <img src="" alt="profile" class="img">
-                    <div class="name"></div>
-                    <br>
-                    <lable>Email: </lable>
-                    <div class="email"></div>
-                </div>
 
                 <div style="padding-top: 1rem;"></div>
 
@@ -102,19 +92,15 @@
     <script>
 
         var googleButton = document.getElementById('google-button');
-        var container = document.getElementsByClassName('container')[0];
-        var img = document.getElementsByClassName('img')[0];
-        var getName = document.getElementsByClassName('name')[0];
-        var email = document.getElementsByClassName('email')[0];
 
         function handleCredentialResponse(response) {
+
             const responsePayload = decodeJwtResponse(response.credential);
-            img.src = responsePayload.picture;
-            getName.innerHTML = responsePayload.name;
-            id.innerHTML = responsePayload.sub;
-            email.innerHTML = responsePayload.email;
-            container.style.display = 'inline-block';
-            googleButton.style.display = 'none'
+
+            var navbarlogintext = document.getElementById('navbar-textbutton')
+
+            navbarlogintext.innerText = responsePayload.name;
+
         }
 
         window.onload = function () {
