@@ -43,16 +43,6 @@ window.onload = () => {
 
 }    
 
-document.addEventListener('readystatechange', event => { 
-
-    if (event.target.readyState === "interactive") {
-
-        
-
-    };
-
-});
-
 /*
 fetch('https://discord.com/api/users/@me', {
 headers: {
