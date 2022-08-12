@@ -16,11 +16,7 @@ window.onload = function () {
         auto_select: true,
         auto: true
     });
-    google.accounts.id.renderButton(
-        document.getElementById("google-button"),
-        { theme: "dark", size: "large", width: '190' } 
-    );
-
+    
     google.accounts.id.prompt(); 
     
 }
