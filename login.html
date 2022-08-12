@@ -57,30 +57,29 @@
 
                 <div style="padding-top: 1rem;"></div>
 
-                <div id="google-button"></div>
-                <div class="container">
-                    <img src="" alt="profile" class="img">
-                    <div class="name"></div>
-                    <br>
-                    <lable>ID: </lable>
-                    <div class="id"></div>
-                    <br>
-                    <lable>Email: </lable>
-                    <div class="email"></div>
-                    <button onClick="signOut()">Sign Out</button>
-                </div>
+                <button style="background-color: transparent;">
+                    <div id="google-button"></div>
+                </button>
 
                 <div style="padding-top: 1rem;"></div>
 
-                <a style="text-decoration: none;" href="https://discord.com/api/oauth2/authorize?client_id=1007687107533361242&redirect_uri=https%3A%2F%2Fcancle5.github.io%2Flogin&response_type=code&scope=identify">
-                    <button style="color: rgb(255, 255, 255); background-color: rgb(30, 30, 30);">Discord</button>
-                </a>
+                <button onClick="signOut()">Sign Out</button>
 
                 <div style="padding-top: 1rem;"></div>
 
                 <a style="text-decoration: none;" href="/">
                     <button style="color: rgb(56, 56, 56); background-color: rgb(255, 255, 255);">Return</button>
                 </a>
+
+                <div style="padding-top: 1rem;"></div>
+
+                <div class="container">
+                    <img src="" alt="profile" class="img">
+                    <div class="name"></div>
+                    <br>
+                    <lable>Email: </lable>
+                    <div class="email"></div>
+                </div>
 
                 <div style="padding-top: 1rem;"></div>
 
@@ -106,10 +105,8 @@
         var container = document.getElementsByClassName('container')[0];
         var img = document.getElementsByClassName('img')[0];
         var getName = document.getElementsByClassName('name')[0];
-        var id = document.getElementsByClassName('id')[0];
         var email = document.getElementsByClassName('email')[0];
 
-        // function to get response
         function handleCredentialResponse(response) {
             const responsePayload = decodeJwtResponse(response.credential);
             img.src = responsePayload.picture;
@@ -122,7 +119,6 @@
 
         window.onload = function () {
             google.accounts.id.initialize({
-                // replace your client id below
                 client_id: "505525286631-ikfvhpi1up7abec6vbd97mb840qgc43e.apps.googleusercontent.com",
                 callback: handleCredentialResponse,
                 auto_select: true,
@@ -130,11 +126,10 @@
             });
             google.accounts.id.renderButton(
                 document.getElementById("google-button"),
-                { theme: "filled_blue", size: "medium", width: '200' }  // customization attributes
+                { theme: "dark", size: "large", width: '190' }  // customization attributes
             );
-            // also display the One Tap dialog on right side
-            // important for auto login
-            google.accounts.id.prompt(); 
+
+            //google.accounts.id.prompt(); 
         }
 
         // function to decode the response.credential
