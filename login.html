@@ -101,11 +101,13 @@
 
             const responsePayload = decodeJwtResponse(response.credential);
 
-            var ProfilePicture = document.getElementById('ProfilePicture')
-            var Navbar_Login_Text = document.getElementById('navbar-textbutton')
+            var ProfilePicture = document.getElementById('ProfilePicture');
+            var Navbar_Login_Text = document.getElementById('navbar-textbutton');
+            var Info_Text = document.getElementById('info-text');
 
             ProfilePicture.src = responsePayload.picture;
             Navbar_Login_Text.innerText = responsePayload.name;
+            Info_Text.innerText = ("You are logged in as " + responsePayload.name)
 
         }
 
