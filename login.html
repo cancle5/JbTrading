@@ -88,38 +88,25 @@
     <script>
 
         window.onload = () => {
-
             const fragment = new URLSearchParams(window.location.hash.slice(1));
             const [accessToken, tokenType] = [fragment.get('access_token'), fragment.get('token_type')];
 
-            console.log(accessToken);
-            console.log(tokenType);
+            if (!accessToken) {
+                console.log("Not authorized");
+            }
 
-            if (localStorage["SiteToken"]) {
-                if (localStorage["SiteTokenType"]) {
-
-                    console.log("Logged In | Cookie");
-            
-                    document.getElementById("navbar-textbutton").innerText = "Logged In";
-
-                };
-            };
-
-            if (accessToken) {
-
-                console.log("Logged In | Discord");
-
-                localStorage["SiteToken"] = accessToken;
-
-                localStorage["SiteTokenType"] = tokenType;
-
-                document.getElementById("navbar-textbutton").innerText = "Logged In";
-
-                window.location.href = window.location.href.split('?')[0];
-
-            };
-
-        };   
+            fetch('https://discord.com/api/users/@me', {
+                headers: {
+                    authorization: `${tokenType} ${accessToken}`,
+                },
+            })
+                .then(result => result.json())
+                .then(response => {
+                    const { username, discriminator } = response;
+                    console.log(username);
+                })
+                .catch(console.error);
+        }; 
 
     </script>
 
