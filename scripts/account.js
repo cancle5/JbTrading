@@ -2,7 +2,7 @@ function handleCredentialResponse(response) {
 
     var Navbar_Login_Text = document.getElementById('navbar-textbutton');
 
-    Navbar_Login_Text.innerText = response.name;
+    Navbar_Login_Text.innerText = response.given_name;
 
 };
 
