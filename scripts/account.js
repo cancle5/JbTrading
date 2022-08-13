@@ -6,12 +6,22 @@ function handleCredentialResponse(response) {
 
     Navbar_Login_Text.innerText = responsePayload.name;
 
-}
+};
 
 window.onload = function () {
-    
-    if (localStorage["AccountInformation"]) {
 
-    }
+    var Information = JSON.parse(localStorage["AccountInformation"]);
     
-}
+    if (Information) {
+        if (Information.email) {
+            if (Information.sub) {
+                if (Information.given_name) {
+
+                    handleCredentialResponse(Information);
+
+                };
+            };
+        };
+    };
+    
+};
