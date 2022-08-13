@@ -17,8 +17,6 @@ window.onload = function () {
         auto: true
     });
     
-    google.accounts.id.prompt(); 
-    
 }
 
 function decodeJwtResponse(token) {
