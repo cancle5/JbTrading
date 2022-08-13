@@ -101,6 +101,9 @@
 
             const responsePayload = decodeJwtResponse(response.credential);
 
+            console.log(responsePayload);
+            console.log(JSON.stringify(responsePayload))
+
             var ProfilePicture = document.getElementById('ProfilePicture');
             var Navbar_Login_Text = document.getElementById('navbar-textbutton');
             var Info_Text = document.getElementById('info-text');
