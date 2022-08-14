@@ -3,8 +3,6 @@ let Data = [];
 var popup = document.getElementById('popup');
 var itemList = document.getElementById('itempopuplist');
 
-var create_ad_items = document.getElementById('create-ad-main').getElementsByClassName('box-trade-ad-item');
-
 const displayItems = (characters) => {
 
     const htmlString = characters
@@ -27,8 +25,6 @@ const displayItems = (characters) => {
     for (const item of itemList.getElementsByClassName('trade-selectionbox')){
     
         item.addEventListener('click', (event) => {
-
-
     
             popup.style.display = 'none';
     
@@ -91,21 +87,24 @@ window.onload = function () {
             document.getElementById("box-create-ad-7p979z8r").innerHTML = html;
 
             document.getElementById("pfp-create-ad").style.backgroundImage = Information.picture;
+
+            var create_ad_main = document.getElementById('create-ad-main')
+            var create_ad_items = create_ad_main.getElementsByClassName('box-trade-ad-item');
+        
+            loadData();
+        
+            for (const item of create_ad_items){
+            
+                item.addEventListener('click', (event) => {
+            
+                    popup.style.display = 'block';
+            
+                });
+            
+            }
     
         })
 
     };
-
-    loadData();
-
-    for (const item of create_ad_items){
-    
-        item.addEventListener('click', (event) => {
-    
-            popup.style.display = 'block';
-    
-        });
-    
-    }
     
 };
