@@ -126,8 +126,8 @@
             ProfilePicture.src = responsePayload.picture;
             Navbar_Login_Text.innerText = responsePayload.given_name;
             Info_Text.innerText = ("You are logged in as " + responsePayload.email);
-            Full_Name.innerHTML = responsePayload.name;
-            Email.innerText = responsePayload.email;
+            Full_Name.innerHTML = ("Name: " + responsePayload.name);
+            Email.innerText = ("Email: " + responsePayload.email);
 
         };
 
