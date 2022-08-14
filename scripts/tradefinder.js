@@ -3,6 +3,8 @@ let Data = [];
 var popup = document.getElementById('popup');
 var itemList = document.getElementById('itempopuplist');
 
+var selected = null;
+
 const displayItems = (characters) => {
 
     const htmlString = characters
@@ -92,16 +94,6 @@ window.onload = function () {
             var create_ad_items = create_ad_main.getElementsByClassName('box-trade-ad-item');
         
             loadData();
-        
-            for (const item of create_ad_items){
-            
-                item.addEventListener('click', (event) => {
-            
-                    popup.style.display = 'block';
-            
-                });
-            
-            }
     
         })
 
