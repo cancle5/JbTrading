@@ -106,6 +106,7 @@
 
     </div>
 
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script>
 
         var googleButton = document.getElementById('google-button');
@@ -124,11 +125,11 @@
 
             ProfilePicture.src = responsePayload.picture;
             Navbar_Login_Text.innerText = responsePayload.given_name;
-            Info_Text.innerText = ("You are logged in as " + responsePayload.email)
+            Info_Text.innerText = ("You are logged in as " + responsePayload.email);
             Full_Name.innerHTML = responsePayload.name;
             Email.innerText = responsePayload.email;
 
-        }
+        };
 
         window.onload = function () {
             
@@ -144,7 +145,7 @@
             );
 
             google.accounts.id.prompt(); 
-        }
+        };
 
         function decodeJwtResponse(token) {
             var base64Url = token.split('.')[1];
@@ -153,7 +154,7 @@
                 return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
             }).join(''));
             return JSON.parse(jsonPayload);
-        }
+        };
 
         function signOut() {
             google.accounts.id.disableAutoSelect();
@@ -161,7 +162,7 @@
             localStorage["AccountInformation"] = null;
 
             location.reload();
-        }
+        };
 
     </script>
 
