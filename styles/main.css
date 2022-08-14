@@ -363,10 +363,10 @@ button:hover {
 
     border-radius: 1rem;
 
-    max-width: 85%;
-    max-height: fit-content;
+    max-width: 75rem;
+    width: 99%;
 
-    min-width: none;
+    max-height: fit-content;
     min-height: fit-content;
 
     display: block;
