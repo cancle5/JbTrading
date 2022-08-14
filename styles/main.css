@@ -759,7 +759,8 @@ nav {
 
     border-radius: 1.5rem;
 
-    height: 10rem;
+    height: fit-content;
+
     width: 80%;
 
     display: block;
