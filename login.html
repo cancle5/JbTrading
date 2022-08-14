@@ -47,7 +47,7 @@
 
         <div class="box-wide-bg-image">
 
-            <div style="display: block;">
+            <div id="account_info" style="display: none;">
 
                 <div class="text" style="font-size: 3rem; font-weight: 800;">Account</div>
 
@@ -123,11 +123,15 @@
             var Full_Name = document.getElementById('full-name');
             var Email = document.getElementById('email');
 
+            var AccountInfo = document.getElementById('account_info');
+
             ProfilePicture.src = responsePayload.picture;
             Navbar_Login_Text.innerText = responsePayload.given_name;
             Info_Text.innerText = ("You are logged in as " + responsePayload.email);
             Full_Name.innerHTML = ("Name: " + responsePayload.name);
             Email.innerText = ("Email: " + responsePayload.email);
+
+            AccountInfo.style.display = "block";
 
         };
 
