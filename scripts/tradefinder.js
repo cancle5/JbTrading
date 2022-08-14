@@ -3,7 +3,7 @@ let Data = [];
 var popup = document.getElementById('popup');
 var itemList = document.getElementById('itempopuplist');
 
-var create_ad_items = document.document.getElementById('create-ad-main').getElementsByClassName('box-trade-ad-item');
+var create_ad_items = document.getElementById('create-ad-main').getElementsByClassName('box-trade-ad-item');
 
 const displayItems = (characters) => {
 
