@@ -295,7 +295,7 @@ button:hover {
     padding-inline-start: 0;
     display: grid;      
     grid-template-columns: repeat(auto-fit, minmax(1px, 170px));
-    grid-gap: 5px;
+    grid-gap: 0px;
 
 
 }
@@ -305,7 +305,7 @@ button:hover {
     padding-inline-start: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(1px, 170px));
-    grid-gap: 5px;
+    grid-gap: 0px;
 
 }
 
