@@ -1,40 +1,23 @@
-document.addEventListener('readystatechange', event => { 
+window.onload = function () {
 
-    if (event.target.readyState === "interactive") {
+    var Information = JSON.parse(localStorage["AccountInformation"]);
+    
+    if (Information === null || Information === undefined) {
 
-        if (localStorage["SiteToken"] !== null) {
-            if (localStorage["SiteTokenType"] !== null) {
+        console.log("ERROR | No login data found.");
 
-                fetch('https://discord.com/api/users/@me', {
+    } else {
 
-                    headers: {
-                        authorization: `${localStorage["SiteTokenType"]} ${localStorage["SiteToken"]}`,
-                    },
+        fetch("/sections/create-ad.html")
+        .then((response) => response.text())
+        .then((html) => {
+    
+            document.getElementById("box-create-ad-7p979z8r").innerHTML = html;
 
-                })
-                .then(result => result.json())
-                .then(response => {
-
-                    console.log(response);
-
-                    const { username, discriminator, avatar, id} = response;
-                    
-                    fetch("/sections/create-ad.html")
-                    .then((response) => response.text())
-                    .then((html) => {
-                
-                        document.getElementById("box-create-ad-7p979z8r").innerHTML = html;
-        
-                        document.getElementById("pfp-create-ad").style.backgroundImage = `https://cdn.discordapp.com/avatars/${id}/${avatar}.jpg`;
-                
-                    })
-
-                })
-                .catch(console.error);
-
-            };
-        };
+            document.getElementById("pfp-create-ad").style.backgroundImage = Information.picture;
+    
+        })
 
     };
-
-});
+    
+};

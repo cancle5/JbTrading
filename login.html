@@ -43,39 +43,52 @@
 
         <nav id="navbar"><script src="/scripts//sections/navbar.js"></script></nav>
 
-        <div style="padding-top: 10rem;"></div>
+        <div style="padding-top: 2rem;"></div>
 
         <div class="box-wide-bg-image">
 
-            <div class="text" style="font-size: 3rem; font-weight: 800;">Login</div>
+            <div style="display: block;">
 
-            <div style="padding-top: 0.5rem;"></div>
+                <div class="text" style="font-size: 3rem; font-weight: 800;">Account</div>
 
-            <div id="info-text" class="text" style="font-size: 1.5rem;">Login using one of the methods below.</div>
-
-            <div>
-
-                <div style="padding-top: 2rem;"></div>
-
-                <button style="background-color: transparent;">
-                    <div id="google-button"></div>
-                </button>
-
-                <div style="padding-top: 1rem;"></div>
-
-                <button onClick="signOut()">Sign Out</button>
-
-                <div style="padding-top: 1rem;"></div>
-
-                <a style="text-decoration: none;" href="/">
-                    <button style="color: rgb(56, 56, 56); background-color: rgb(255, 255, 255);">Return</button>
-                </a>
-
-                <div style="padding-top: 1rem;"></div>
+                <div id="full-name" class="text" style="font-size: 1.5rem; font-weight: 400;">Name: </div>
+                <div id="email" class="text" style="font-size: 1.5rem; font-weight: 400;">Email: </div>
 
                 <img id="ProfilePicture" style="width: 10rem; display: block; margin-left: auto; margin-right: auto;" src="" alt="Profile Picture">
 
                 <div style="padding-top: 1rem;"></div>
+
+            </div>
+
+            <div>
+
+                <div class="text" style="font-size: 3rem; font-weight: 800;">Login</div>
+
+                <div style="padding-top: 0.5rem;"></div>
+    
+                <div id="info-text" class="text" style="font-size: 1.5rem;">Login using one of the methods below.</div>
+    
+                <div>
+    
+                    <div style="padding-top: 2rem;"></div>
+    
+                    <button style="background-color: transparent;">
+                        <div id="google-button"></div>
+                    </button>
+    
+                    <div style="padding-top: 1rem;"></div>
+    
+                    <button onClick="signOut()">Sign Out</button>
+    
+                    <div style="padding-top: 1rem;"></div>
+    
+                    <a style="text-decoration: none;" href="/">
+                        <button style="color: rgb(56, 56, 56); background-color: rgb(255, 255, 255);">Return</button>
+                    </a>
+    
+                    <div style="padding-top: 1rem;"></div>
+
+                </div>
 
             </div>
 
@@ -106,10 +119,14 @@
             var ProfilePicture = document.getElementById('ProfilePicture');
             var Navbar_Login_Text = document.getElementById('navbar-textbutton');
             var Info_Text = document.getElementById('info-text');
+            var Full_Name = document.getElementById('full-name');
+            var Email = document.getElementById('email');
 
             ProfilePicture.src = responsePayload.picture;
             Navbar_Login_Text.innerText = responsePayload.given_name;
             Info_Text.innerText = ("You are logged in as " + responsePayload.email)
+            Full_Name.innerHTML = responsePayload.name;
+            Email.innerText = responsePayload.email;
 
         }
 
@@ -141,12 +158,12 @@
         function signOut() {
             google.accounts.id.disableAutoSelect();
 
+            localStorage["AccountInformation"] = null;
+
             location.reload();
         }
 
     </script>
-
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
 
     <script>
         window['nitroAds'].createAd('NitroPayAnchorAd', {
