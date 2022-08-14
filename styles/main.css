@@ -605,6 +605,18 @@ nav {
 
 }
 
+@media screen and (max-width: 550px) {
+
+    .nav_right a {
+
+        font-size: 80%;
+        
+        padding: 10px 0px;
+
+    }    
+
+}
+
 @media screen and (max-width: 600px) {
 
     .nav_right a {
