@@ -823,3 +823,45 @@ nav {
     margin-left: 0.5rem;
 
 }
+
+.create-ad-form {
+
+    background-color: black;
+
+}
+
+.create-ad-form label {
+
+    color: white;
+
+    font-family: 'Lexend', sans-serif;
+
+    font-size: 1.5rem;
+
+}
+
+.create-ad-form select {
+
+    background-color: #1c1c1c;
+
+    color: white;
+    font-family: 'Lexend', sans-serif;
+    text-align: center;
+    font-size: 1.1rem;
+
+    border: none;
+
+}
+
+.create-ad-form input {
+
+    background-color: #1c1c1c;
+
+    color: white;
+    font-family: 'Lexend', sans-serif;
+    text-align: center;
+    font-size: 1.1rem;
+
+    border: none;
+
+}
