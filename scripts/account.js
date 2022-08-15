@@ -16,7 +16,7 @@ window.onload = function () {
 
     } else {
 
-        handleCredentialResponse(Information);
+        setTimeout(() => {  handleCredentialResponse(Information) }, 500);
 
     }
     

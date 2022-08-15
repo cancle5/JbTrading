@@ -5,73 +5,6 @@ var itemList = document.getElementById('itempopuplist');
 
 var selected = null;
 
-const displayItems = (characters) => {
-
-    const htmlString = characters
-        .map((character) => {
-
-            return `
-            <div id="${character.ID}" class="trade-selectionbox">
-
-                <div id="${character.Header1}" class="text" style="font-size: 1.8rem; font-weight: 600;">${character.Header1}</div>
-                <div style="padding-top: 1rem"></div>
-                <img id="trade-selectionimage" src="${character.Image1}" />
-
-            </div>
-        `;
-        })
-    .join(''); 
-
-    itemList.innerHTML = itemList.innerHTML + htmlString
-
-    for (const item of itemList.getElementsByClassName('trade-selectionbox')){
-    
-        item.addEventListener('click', (event) => {
-    
-            popup.style.display = 'none';
-    
-        });
-    
-    }
-
-};
-
-const loadData = async () => {
-
-    try {
-
-        await fetch('https://opensheet.elk.sh/1T9-q3RWbYz_m9g5RPygdAC4vod09XJIRUcN0ijkuSts/1')
-        .then(result => result.json())
-        .then((output) => {
-    
-            console.log(output);
-
-            Data = output;
-    
-            displayItems(output);
-    
-            localStorage["DataBackup"] = JSON.stringify(output);
-    
-        })
-
-    } catch (error) {
-
-        console.log(error);
-
-        Data = JSON.parse(localStorage["DataBackup"]);
-
-        console.log(Data);
-    
-        if (Array.isArray(Data)) {
-    
-            displayItems(Data);
-
-        }
-
-    }
-
-};
-
 window.onload = function () {
 
     var Information = JSON.parse(localStorage["AccountInformation"]);
@@ -89,11 +22,6 @@ window.onload = function () {
             document.getElementById("box-create-ad-7p979z8r").innerHTML = html;
 
             document.getElementById("pfp-create-ad").style.backgroundImage = Information.picture;
-
-            var create_ad_main = document.getElementById('create-ad-main')
-            var create_ad_items = create_ad_main.getElementsByClassName('box-trade-ad-item');
-        
-            loadData();
     
         })
 
