@@ -309,6 +309,44 @@ button:hover {
 
 }
 
+.list-home {
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+}
+
+@media screen and (max-width: 1000px) {
+
+    .list-home {
+
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+
+    }    
+        
+} 
+
+@media screen and (min-width: 100%) {
+
+    .list-home {
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+
+    }    
+        
+} 
+
 /* Boxes */
 
 .box {
