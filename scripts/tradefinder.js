@@ -42,9 +42,9 @@ const renderAd = (Info) => {
 
         Ads_List.innerHTML = Ads_List.innerHTML + html;
 
-        document.getElementById('image-trade-ad-notset').style.backgroundImage = Info.Picture;
+        document.getElementById('image-trade-ad-notset').style.backgroundImage = 'url(' + Info.Picture + ')';
         
-        document.getElementById('image-trade-ad-notset').id = "image-trade-offer";
+        document.getElementById('image-trade-ad-notset').id = "image-trade-ad";
 
         var Element = document.getElementById('box-trade-ad-offer-notset');
         var Button = document.getElementById('box-trade-ad-button-notset');
@@ -122,7 +122,7 @@ if (Information === null || Information === undefined) {
 
         document.getElementById("box-create-ad-7p979z8r").innerHTML = html;
 
-        document.getElementById("pfp-create-ad").style.backgroundImage = Information.picture;
+        document.getElementById("pfp-create-ad").style.backgroundImage = 'url(' + Information.picture + ')';
 
         let form  = document.getElementById('create-ad-form');
 
