@@ -743,7 +743,10 @@ nav {
     border-radius: 1.5rem;
 
     height: 6rem;
-    width: 80%;
+
+    min-width: 80%;
+    width: 60rem;
+    max-width: 100%;
 
     display: flex;
 

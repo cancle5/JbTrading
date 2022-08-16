@@ -46,21 +46,23 @@ const renderAd = (Info) => {
         
         document.getElementById('image-trade-ad-notset').id = "image-trade-ad";
 
-        var Element = document.getElementById('box-trade-ad-offer-notset');
-        var Button = document.getElementById('box-trade-ad-button-notset');
+        let Element = document.getElementById('box-trade-ad-offer-notset');
+        let Button = document.getElementById('box-trade-ad-button-notset');
 
-        var ButtonID = "box-trade-ad-button" + (new Date()).getTime() + Math.floor(Math.random() * 100);
+        let ButtonID = "box-trade-ad-button" + (new Date()).getTime() + Math.floor(Math.random() * 100);
 
         Element.id= "box-trade-ad-offer" + (new Date()).getTime() + Math.floor(Math.random() * 100);
         Button.id = ButtonID;
 
-        for (const item of Info.Trade) {
+        for (let item of Info.Trade) {
 
-            for (const Table of Data){
+            for (let Table of Data){
 
                 if (String(Table.Header1) == String(item)) {
 
-                    var htmlString = `
+                    let html = document.createElement("div");
+
+                    html.innerHTML = `
         
                     <div class="box-trade-ad-item">
                         <img src="${Table.Image1}" style="width: 100%; margin-top: 1.3rem;" alt="Item_Image">
@@ -68,7 +70,7 @@ const renderAd = (Info) => {
         
                     `;
                     
-                    Element.innerHTML = Element.innerHTML + htmlString;
+                    Element.appendChild(html);
 
                 };
 
@@ -76,14 +78,10 @@ const renderAd = (Info) => {
 
         };   
 
-        console.log(Button);
-
-        setTimeout(function() {
+        var myInterval = setInterval(function() {
             
-            document.getElementById(ButtonID).addEventListener('click', (event) => {
+            document.getElementById(ButtonID).onclick = function() {
 
-                event.preventDefault();
-    
                 document.getElementById('popup').style.display = 'block';
     
                 document.getElementById('popup-contact-method').innerText = ("Contact Method: " + Info.ContactMethod)
@@ -100,9 +98,9 @@ const renderAd = (Info) => {
     
                 };
     
-            })
-
-        }, 1000);
+            }
+                
+        }, 2000);
     
     })
 
@@ -157,7 +155,8 @@ if (Information === null || Information === undefined) {
                     Discord: discord,
                     Picture: Information.picture,
                     Email: Information.email,
-                    ContactMethod: contact_method
+                    ContactMethod: contact_method,
+                    Time: (new Date()).getTime()
                 });
     
                 error_text.innerText = ""
