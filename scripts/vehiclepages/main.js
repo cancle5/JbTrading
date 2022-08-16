@@ -20,7 +20,7 @@ const loadData = async () => {
 
     try {
 
-        await fetch('https://opensheet.elk.sh/1T9-q3RWbYz_m9g5RPygdAC4vod09XJIRUcN0ijkuSts/1')
+        await fetch('/data.json')
         .then(result => result.json())
         .then((output) => {
     

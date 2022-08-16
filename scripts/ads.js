@@ -15,7 +15,7 @@ var setInnerHTML = function(elm, html) {
 
 const loadInfo = async () => {
 
-    fetch('https://opensheet.elk.sh/1YVUKVTNxdLsDT9-_RGMZ5Xy1MiUE1vvljzTfWuk0Rus/1')
+  await fetch('/data.json')
     .then(result => result.json())
     .then((output) => {
 
