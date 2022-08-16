@@ -40,7 +40,7 @@ const renderAd = (Info) => {
     .then((response) => response.text())
     .then((html) => {
 
-        Ads_List.innerHTML = html + Ads_List.innerHTML;
+        Ads_List.innerHTML = Ads_List.innerHTML + html;
 
         document.getElementById('image-trade-ad-notset').style.backgroundImage = 'url(' + Info.Picture + ')';
         
