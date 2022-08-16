@@ -54,10 +54,6 @@
 
     <script src="/scripts/account.js"></script>
 
-    <!-- Main -->
-
-    <script src="/scripts/tradefinder.js"></script>  
-
 </head>
 <body>
 
@@ -66,6 +62,26 @@
         <nav id="navbar"><script src="/scripts/sections/navbar.js"></script></nav>
 
         <div style="padding-top: 2rem;"></div>
+
+        <div id="popup" class="popup">
+
+            <div style="padding-top: 10rem;"></div>
+        
+            <div class="box3">
+
+                <div style="padding-top: 10rem;"></div>
+
+                <div id="popup-contact-method" style="font-size: 2rem;" class="text"></div>
+                <div id="popup-username" style="font-size: 2rem;" class="text"></div>
+
+                <div style="padding-top: 9rem;"></div>
+
+                <button onclick="document.getElementById('popup').style.display = 'none'">Close</button>
+
+                <div style="padding-top: 1rem;"></div>
+
+            </div>
+        </div>
 
         <div class="box-wide-trade2">
 
@@ -87,42 +103,6 @@
 
             <div class="box-trade-ads" id="items">
 
-                <div class="box-trade-ad">
-
-                    <div style="background-image: url(/media/images/cancle5.png); background-repeat: no-repeat; background-size: cover; width: 10%; height: 6rem; background-color: rgb(0, 0, 0); border-radius: 100rem; margin-left: 0.5rem;"></div>
-                
-                    <div class="box-trade-ad-offer">
-                
-                        <div class="box-trade-ad-item">
-                            <img src="https://media.discordapp.net/attachments/1005873955632066590/1005881606688485406/New_Project_52.png" style="width: 100%; margin-top: 1.3rem;" alt="Item_Image">
-                        </div>
-                
-                        <div class="box-trade-ad-item">
-                            <img src="https://media.discordapp.net/attachments/1005873955632066590/1005881606688485406/New_Project_52.png" style="width: 100%; margin-top: 1.3rem;" alt="Item_Image">
-                        </div>
-                
-                        <div class="box-trade-ad-item">
-                            <img src="https://media.discordapp.net/attachments/1005873955632066590/1005881606688485406/New_Project_52.png" style="width: 100%; margin-top: 1.3rem;" alt="Item_Image">
-                        </div>
-                
-                        <div class="box-trade-ad-item">
-                            <img src="https://media.discordapp.net/attachments/1005873955632066590/1005881606688485406/New_Project_52.png" style="width: 100%; margin-top: 1.3rem;" alt="Item_Image">
-                        </div>
-                
-                        <div class="box-trade-ad-item">
-                            <img src="https://media.discordapp.net/attachments/1005873955632066590/1005881606688485406/New_Project_52.png" style="width: 100%; margin-top: 1.3rem;" alt="Item_Image">
-                        </div>
-                
-                        <div class="box-trade-ad-item">
-                            <img src="https://media.discordapp.net/attachments/1005873955632066590/1005881606688485406/New_Project_52.png" style="width: 100%; margin-top: 1.3rem;" alt="Item_Image">
-                        </div>
-                
-                    </div>
-                
-                    <div class="box-trade-ad-button">Trade</div>
-                
-                </div>
-
             </div>
 
             <div style="padding-top: 1rem;"></div>
@@ -140,6 +120,33 @@
         <span data-ccpa-link="1"></span>
 
     </div>
+
+    <!-- Main -->
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
+
+  <script>
+
+    var firebaseConfig = {
+        apiKey: "AIzaSyD71sIcsvASYFzH3FuZJWa9jP3lvWfISuA",
+        authDomain: "jbvalues.firebaseapp.com",
+        databaseURL: "https://jbvalues-default-rtdb.firebaseio.com",
+        projectId: "jbvalues",
+        storageBucket: "jbvalues.appspot.com",
+        messagingSenderId: "505525286631",
+        appId: "1:505525286631:web:08c9132ba3694b79285442",
+        measurementId: "G-91GJ5TV6P8"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const Database = firebase.firestore();
+
+  </script>
+
+    <script src="/scripts/tradefinder.js"></script>  
 
     <script>
         window['nitroAds'].createAd('Stickyskyscraper', {

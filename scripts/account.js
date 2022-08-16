@@ -1,6 +1,6 @@
 function handleCredentialResponse(response) {
 
-    var Navbar_Login_Text = document.getElementById('navbar-textbutton');
+    let Navbar_Login_Text = document.getElementById('navbar-textbutton');
 
     Navbar_Login_Text.innerText = response.given_name;
 
@@ -8,7 +8,7 @@ function handleCredentialResponse(response) {
 
 window.onload = function () {
 
-    var Information = JSON.parse(localStorage["AccountInformation"]);
+    let Information = JSON.parse(localStorage["AccountInformation"]);
     
     if (Information === null || Information === undefined) {
 
