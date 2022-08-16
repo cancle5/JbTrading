@@ -110,85 +110,85 @@ const renderAd = (Info) => {
 
 loadData();
 
-Database.collection('TradeAds').onSnapshot(snapshot => {
-    snapshot.docChanges().forEach(change => {
-      if(change.type === 'added') {
+if (Information === null || Information === undefined) {
 
-        renderAd(change.doc.data());
+    console.log("ERROR | No login data found.");
 
-      }
+} else {
+
+    fetch("/sections/create-ad.html")
+    .then((response) => response.text())
+    .then((html) => {
+
+        document.getElementById("box-create-ad-7p979z8r").innerHTML = html;
+
+        document.getElementById("pfp-create-ad").style.backgroundImage = Information.picture;
+
+        let form  = document.getElementById('create-ad-form');
+
+        let error_text  = document.getElementById('error-text');
+        let success_text  = document.getElementById('success-text');
+
+        form.addEventListener('submit', (event) => {
+
+            event.preventDefault();
+
+            let item = form.elements['trade-item'].value;
+            let item2 = form.elements['trade-item2'].value;
+            let item3 = form.elements['trade-item3'].value;
+            let item4 = form.elements['trade-item4'].value;
+            let discord = form.elements['discord-text'].value;
+            let contact_method = form.elements['contact-method'].value;
+
+            if (contact_method == 'Discord' && discord == "")  {
+
+                error_text.innerText = "Error | Since your contact method is discord you must provide your username and tag."
+
+                success_text.innerText = ""
+
+                return;
+
+            };
+
+            try {
+
+                Database.collection('TradeAds').add({
+                    Trade: [item, item2, item3, item4],
+                    Discord: discord,
+                    Picture: Information.picture,
+                    Email: Information.email,
+                    ContactMethod: contact_method
+                });
+    
+                error_text.innerText = ""
+    
+                success_text.innerText = "Success | Your ad has been posted."
+
+            }
+            catch (error) {
+
+                error_text.innerText = "Error | Failed to create ad. Please try again later."
+
+                success_text.innerText = ""
+
+            }
+
+        });
+
     })
-})
+
+};
 
 setTimeout(function() {
             
-    if (Information === null || Information === undefined) {
-
-        console.log("ERROR | No login data found.");
+    Database.collection('TradeAds').onSnapshot(snapshot => {
+        snapshot.docChanges().forEach(change => {
+          if(change.type === 'added') {
     
-    } else {
+            renderAd(change.doc.data());
     
-        fetch("/sections/create-ad.html")
-        .then((response) => response.text())
-        .then((html) => {
-    
-            document.getElementById("box-create-ad-7p979z8r").innerHTML = html;
-    
-            document.getElementById("pfp-create-ad").style.backgroundImage = Information.picture;
-    
-            let form  = document.getElementById('create-ad-form');
-    
-            let error_text  = document.getElementById('error-text');
-            let success_text  = document.getElementById('success-text');
-    
-            form.addEventListener('submit', (event) => {
-    
-                event.preventDefault();
-    
-                let item = form.elements['trade-item'].value;
-                let item2 = form.elements['trade-item2'].value;
-                let item3 = form.elements['trade-item3'].value;
-                let item4 = form.elements['trade-item4'].value;
-                let discord = form.elements['discord-text'].value;
-                let contact_method = form.elements['contact-method'].value;
-    
-                if (contact_method == 'Discord' && discord == "")  {
-    
-                    error_text.innerText = "Error | Since your contact method is discord you must provide your username and tag."
-    
-                    success_text.innerText = ""
-    
-                    return;
-    
-                };
-    
-                try {
-    
-                    Database.collection('TradeAds').add({
-                        Trade: [item, item2, item3, item4],
-                        Discord: discord,
-                        Picture: Information.picture,
-                        Email: Information.email,
-                        ContactMethod: contact_method
-                    });
-        
-                    error_text.innerText = ""
-        
-                    success_text.innerText = "Success | Your ad has been posted."
-    
-                }
-                catch (error) {
-    
-                    error_text.innerText = "Error | Failed to create ad. Please try again later."
-    
-                    success_text.innerText = ""
-    
-                }
-    
-            });
-    
+          }
         })
-    
-    };
+    })
 
 }, 1000);
