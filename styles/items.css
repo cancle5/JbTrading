@@ -1,0 +1,130 @@
+h1 {
+
+    font-size: 3rem;
+
+    color: rgb(255, 255, 255);
+
+    font-family: 'Viga', sans-serif;
+
+    text-align: center;
+
+}
+
+img {
+
+    width: 30rem;
+
+    display: block;
+
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+p {
+
+    font-size: 1.4rem;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    font-family: 'Viga', sans-serif;
+
+    text-align: left;
+
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 30px;
+
+}
+
+.box {
+
+    width: 90%;
+    height: fit-content;
+
+    display: block;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: black;
+
+    border-radius: 1rem;
+
+}
+
+.box .chart {
+
+    padding: 100px;
+
+}
+
+@media only screen and (max-width: 800px) {
+    .box .chart {
+
+        padding: 50px;
+    
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .box .chart {
+
+        padding: 25px;
+    
+    }
+    .box {
+
+        width: 95%;
+
+    }
+    p {
+
+        padding-left: 50px;
+        padding-right: 50px;
+
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .box .chart {
+
+        padding: 0px;
+    
+    }
+}
+
+.split {
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+.box-wide-information {
+    background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgb(20, 20, 20) 100%);
+    border-radius: 1rem;
+    max-width: 83rem;
+    width: 96%;
+    max-height: fit-content;
+    min-height: fit-content;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.box-wide-information .text {
+
+    font-size: 2.5rem;
+    font-weight: 600;
+
+    color: rgba(255, 255, 255, 0.868);
+
+    font-family: 'Viga', sans-serif;
+
+    text-align: center;
+
+    padding: 4px;
+
+}   

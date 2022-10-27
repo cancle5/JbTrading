@@ -1,0 +1,126 @@
+newmtl Windows1Mtl
+Material Color
+Ka 0.00258583 0.00258583 0.00258583
+Kd 0.00258583 0.00258583 0.00258583
+Ks 0.000162248 0.000162248 0.000162248 
+
+d 0.686275
+
+Ns 0
+
+map_Bump Steer1_nmap.png
+
+newmtl Screens1Mtl
+Material Color
+Ka 0.353741 0.363604 0.420508
+Kd 0.353741 0.363604 0.420508
+Ks 0.031906 0.0327956 0.0379282 
+
+d 1
+
+Ns 0
+
+newmtl Body1Mtl
+Material Color
+Ka 0.0477758 0.302126 0.766744
+Kd 0.0477758 0.302126 0.766744
+Ks 0.0189229 0.119665 0.303691 
+
+d 1
+
+Ns 0
+
+map_Bump Steer1_nmap.png
+
+newmtl Brakelights1Mtl
+Material Color
+Ka 0.560499 0.0169881 0.00775103
+Kd 0.560499 0.0169881 0.00775103
+Ks 0.0505548 0.00153226 0.000699112 
+
+d 1
+
+Ns 0
+
+newmtl Secondbody1Mtl
+Material Color
+Ka 0.00715504 0.018913 0.0315514
+Kd 0.00715504 0.018913 0.0315514
+Ks 0.000448943 0.0011867 0.0019797 
+
+d 1
+
+Ns 0
+
+map_Bump Steer1_nmap.png
+
+newmtl Headlights1Mtl
+Material Color
+Ka 0.91575 0.91575 0.91575
+Kd 0.91575 0.91575 0.91575
+Ks 0.0825971 0.0825971 0.0825971 
+
+d 1
+
+Ns 0
+
+newmtl Interior1Mtl
+Material Color
+Ka 0.000107187 0.436813 0.84337
+Kd 0.000107187 0.436813 0.84337
+Ks 6.72548e-06 0.0274079 0.0529173 
+
+d 1
+
+Ns 0
+
+map_Bump Steer1_nmap.png
+
+newmtl Steer1Mtl
+Material Color
+Ka 0.00258583 0.00258583 0.00258583
+Kd 0.00258583 0.00258583 0.00258583
+Ks 0.000162248 0.000162248 0.000162248 
+
+d 1
+
+Ns 0
+
+map_Bump Steer1_nmap.png
+
+newmtl Rim1Mtl
+Material Color
+Ka 0.124741 0.113921 0.121986
+Kd 0.124741 0.113921 0.121986
+Ks 0.0831606 0.0759473 0.0813238 
+
+d 1
+
+Ns 255
+
+map_Ka Rim1_diff.png
+map_Kd Rim1_diff.png
+map_d Rim1_diff.png
+
+map_Bump Rim1_nmap.png
+
+map_Ns Rim1_spec.png
+
+newmtl Wheel21Mtl
+Material Color
+Ka 0.0151752 0.042987 0.0759261
+Kd 0.0151752 0.042987 0.0759261
+Ks 0.000595107 0.00168577 0.0029775 
+
+d 1
+
+Ns 0
+
+map_Ka Wheel21_diff.png
+map_Kd Wheel21_diff.png
+map_d Wheel21_diff.png
+
+map_Bump Wheel21_nmap.png
+
+map_Ns Wheel21_spec.png
+

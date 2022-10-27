@@ -1,0 +1,228 @@
+.container-top {
+
+    margin-top: 10rem;
+
+    display: flex;
+
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    justify-content: center;
+
+}
+
+.right {
+
+    padding: 2rem;
+
+}
+
+.left {
+
+    padding: 2rem;
+
+    max-width: 38%;
+
+    text-align: center;
+}
+
+.right-image {
+
+    width: 40rem;
+    height: 20rem;
+
+    background-color: black;
+    background-image: url(/media/images/FUG5_P5VsAE4TVM.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    border-radius: 1rem;
+
+    /*animation: float 6s ease-in-out infinite;*/
+
+}
+
+.box {
+
+    background-color: rgba(10, 18, 30, 0.9);
+
+    border-radius: 1rem;
+
+    width: 50vw;
+    height: fit-content;
+
+    display: block;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    opacity: 0;
+
+    box-shadow: 0 8px 26px -4px rgba(0, 123, 255, 0.15),0 8px 9px -5px rgba(0, 123, 255, 0.06);
+    backdrop-filter: saturate(200%) blur(30px);
+
+    transition: all 0.5s ease-in;
+
+}
+
+.box2 {
+
+    background-color: rgba(10, 18, 30, 0.9);
+
+    border-radius: 1rem;
+
+    max-width: 30rem;
+    max-height: 34rem;
+
+    width: 50%;
+    
+    min-height: 20rem;
+
+    display: block;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    box-shadow: 0 8px 26px -4px rgba(0, 123, 255, 0.15),0 8px 9px -5px rgba(0, 123, 255, 0.06);
+    backdrop-filter: saturate(200%) blur(30px);
+
+}
+
+.list {
+
+    padding-inline-start: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 15px;
+
+}
+
+.image-type-2 {
+
+    animation: float 6s ease-in-out infinite;
+
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 49%;
+
+}
+
+@keyframes float {
+	0% {
+		transform: translatey(-10px);
+	}
+	50% {
+		transform: translatey(10px);
+	}
+	100% {
+		transform: translatey(-10px);
+	}
+}
+
+@media only screen and (max-width: 1200px) {
+
+    .left {
+
+        max-width: 50%;
+        
+        padding: 1rem;
+
+    }
+
+    .right-image {
+
+        width: 35rem;
+        height: 15rem;
+
+        padding: 1rem;
+
+    }    
+
+    .box {
+
+        width: 60vw;
+
+    }
+
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .container-top {
+
+        display: block;
+
+    }
+
+    .left {
+
+        max-width: 80%;
+
+        display: block;
+
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+    .right-image {
+
+        display: block;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        width: 40rem;
+        height: 15rem;
+
+    }
+
+    .image-type-2 {
+
+        display: none;
+            
+    }
+
+    .box {
+
+        width: 80vw;
+
+    }
+
+}
+
+@media only screen and (max-width: 650px) {
+
+    .left {
+
+        max-width: 100%;
+
+        display: block;
+
+        padding: 0.5rem;
+
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+    .right {
+
+        padding: 0.5rem;
+
+    }
+
+    .right-image {
+
+        width: 100%;
+        height: 13rem;
+
+    }
+
+};    
