@@ -22,13 +22,12 @@
     background-color: black;
     background-image: linear-gradient(0deg, rgb(0, 0, 0) 1.00%,rgb(0, 23, 59) 100.00%);
 
-
     pointer-events: none;
     top: 0px;
     left: 0;
     right: 0;
-    width: 100vh;
-    height: 750px;
+    width: 100vw;
+    height: 100vh;
     position: fixed;
     z-index: -1;
 }
