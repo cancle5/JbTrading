@@ -64,71 +64,34 @@ window.onload = function(){
     
     }
 
-    animateItems();
-    
-    window.onscroll = function() {
+    setInterval(function() { 
 
         animateItems();
 
-        if (transitioning == false) {
+        if (window.scrollY > 100) {
 
-            if (window.scrollY > 100) {
+            if (scrolltop == true) {
 
-                if (scrolltop == true) {
-    
-                    scrolltop = false;
-                    
-                    transitioning = true;
-    
-                    navbar.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
-                    navbar.style.transition = "all 1s";
-    
-                    footer.style.bottom = "-11rem";
-                    footer.style.transition = "all 1s";
-    
-                    setTimeout(function() {
-    
-                        footer.style.position = "relative";
-                        footer.style.bottom = "2rem";
-    
-                        transitioning = false;
-    
-                    }, 1000);
-    
-                }  
-                
-            }
-            else {
-    
-                if (scrolltop == false) {
-    
-                    scrolltop = true;
-    
-                    transitioning = true;
-    
-                    navbar.style.backgroundColor = "rgba(0, 0, 0)";
-                    navbar.style.transition = "all 1s";
-    
-                    footer.style.position = "fixed";
-                    footer.style.bottom = "-11rem";
-                    footer.style.transition = "all 0s";
+                scrolltop = false;
 
-                    setTimeout(function() {
-    
-                        footer.style.bottom = "2rem";
-                        footer.style.position = "fixed";
-                        footer.style.transition = "all 1s";
+                navbar.style.backgroundColor = "rgba(0, 0, 0, 0.4)";
+                navbar.style.transition = "all 1s";
 
-                        transitioning = false;
-    
-                    }, 100);
+            }  
+            
+        }
+        else {
 
-    
-                }   
-            }
+            if (scrolltop == false) {
 
+                scrolltop = true;
+
+                navbar.style.backgroundColor = "rgba(9, 13, 23)";
+                navbar.style.transition = "all 1s";
+
+            }   
         }
 
-    };
+     }, 1000);
 
 };

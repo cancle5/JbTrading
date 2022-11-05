@@ -19,15 +19,19 @@ const ItemData = Data[ItemCategory][ItemName];
 console.log(ItemData)
 
 const displayChart = () => {
-    const ctx = document.getElementById("myChart").getContext("2d");
 
-    const config = {
+    var valuehistorydates = ItemData["valuehistorydate"].split(" ");
+    var valuehistory = ItemData["valuehistory"].split(" ");
+
+    var ctx = document.getElementById("myChart").getContext("2d");
+
+    var config = {
         type: "line",
         data: {
-            labels: ItemData["valuehistorydate"].split(" "),
+            labels: valuehistorydates,
             datasets: [{
                 label: "Value",
-                data: ItemData["valuehistory"].split(" "),
+                data: valuehistory,
                 backgroundColor: ["rgba(255, 99, 132, 0.2)"],
                 borderColor: ["rgba(255, 99, 132, 1)"],
                 borderWidth: 1,
@@ -42,7 +46,8 @@ const displayChart = () => {
         },
     };
 
-    const myChart = new Chart(ctx, config);
+    var myChart = new Chart(ctx, config);
+    
 };
 
 if (ItemData != null && ItemData != undefined) {

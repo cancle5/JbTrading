@@ -42,13 +42,17 @@
 
     </div>
 
-    <div style="padding-top: 20vh;"></div>
+    <div style="padding-top: 15rem;"></div>
 
     <script src="/scripts/sections/footer.js"></script>
 
-    <script src="/scripts/scrollanimation.js"></script>
     <script src="/scripts/datahandler.js"></script>
     <script defer>
+
+        while (true) {
+            if (localStorage[DataSaveName] !== undefined) break
+            new Promise(resolve => setTimeout(resolve, 500))
+        }
 
         const page_navbar = document.getElementsByClassName("page-navbar")[0];
         const search_box = document.getElementsByClassName("search-box")[0];
@@ -80,7 +84,7 @@
 
                             <p>Value: ${page_item.value}</p>
 
-                            <a href="${"/values/" + page_item.name}">
+                            <a href="${"/values/" + page_item.name.toLowerCase()}">
                                 <button>View More</button>
                             </a>
 

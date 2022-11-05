@@ -8,6 +8,7 @@
     <!-- Other Tags -->
 
     <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/calculator.css">
 
 </head>
 <body>
@@ -16,11 +17,207 @@
 
     <script src="/scripts/sections/navbar.js"></script>
 
-    <div style="padding-top: 25vh;"></div>
+    <div style="padding-top: 9rem;"></div>
 
-    <h1>Coming Soon!</h1>
+    <div class="box">
+
+        <h1 style="color: rgb(255, 255, 255);">Calculator</h1>
+
+        <div style="display: block;" id="box1">
+
+            <div id="trade1" class="trade">
+
+                <div onclick="addItem('1')" class="tradebox">
+    
+                    <img src="https://media.discordapp.net/attachments/928207094233059388/995439861693690017/New_Project_41.png" alt="Add">
+    
+                </div>
+    
+            </div>
+
+            <h1 id="value1" style="color: rgb(0, 255, 149); font-size: 2.2rem">Value: 0</h1>
+    
+            <div id="trade2" class="trade">
+    
+                <div onclick="addItem('2')" class="tradebox">
+    
+                    <img src="https://media.discordapp.net/attachments/928207094233059388/995439861693690017/New_Project_41.png" alt="Add">
+    
+                </div>
+    
+            </div>
+
+            <h1 id="value2" style="color: rgb(0, 255, 149); font-size: 2.2rem">Value: 0</h1>
+
+        </div>
+
+        <div style="display: none;" id="box2">
+
+            <div id="items" class="items"></div>
+
+        </div>
+
+    </div>
+
+    <div style="padding-top: 4rem;"></div>
 
     <script src="/scripts/sections/footer.js"></script>
+
+    <script src="/scripts/datahandler.js"></script>
+    <script defer>
+
+        while (true) {
+            if (localStorage[DataSaveName] !== undefined) break;
+            new Promise(resolve => setTimeout(resolve, 500));
+        }
+
+        const Data = JSON.parse(localStorage[DataSaveName]);
+
+        const trades = {
+
+            "1": {
+                "object": document.getElementById("trade1"),
+                "trade": [],
+            },
+
+            "2": {
+                "object": document.getElementById("trade2"),
+                "trade": [],
+            },
+
+        };
+
+        var tradeid = "1";
+
+        const box1 = document.getElementById("box1");
+        const box2 = document.getElementById("box2");
+        const value1 = document.getElementById("value1");
+        const value2 = document.getElementById("value2");
+
+        const items = document.getElementById("items");
+
+        function updateValues() {
+
+            var total1 = 0;
+            var total2 = 0;
+
+            for (var id in trades["1"]["trade"]) {
+
+                id = trades["1"]["trade"][id];
+
+                var item = Data["vehicles"][id];
+
+                total1 = total1 + parseFloat(item.value.replace(/,/g, ''));
+
+            };    
+
+            for (var id in trades["2"]["trade"]) {
+
+                id = trades["2"]["trade"][id];
+
+                var item = Data["vehicles"][id];
+
+                total2 = total2 + parseFloat(item.value.replace(/,/g, ''));
+
+            };  
+
+            value1.innerText = "Value: " + total1.toLocaleString("en-US");
+            value2.innerText = "Value: " + total2.toLocaleString("en-US");
+
+        };
+ 
+        function addItem(id) {
+
+            tradeid = id;
+
+            box1.style = "display: none;";
+            box2.style = "display: block;";
+
+        };
+
+        function addItem2(id) {
+
+            var item = Data["vehicles"][id];
+
+            trades[tradeid]["trade"].push(id);
+
+            trades[tradeid]["object"].innerHTML = 
+            `
+
+            <div id="${id}" onclick="removeItem('${id}', '${tradeid}')" class="tradebox">
+
+                <img src="${item.image}" alt="Item">
+
+            </div>
+            
+            ` + trades[tradeid]["object"].innerHTML;
+
+            box1.style = "display: block;";
+            box2.style = "display: none;";
+
+            updateValues();
+
+        };
+
+        function removeItem(id, tradeid) {
+
+            if (trades[tradeid]["trade"].includes(id)) {
+
+                var items = trades[tradeid]["object"].getElementsByClassName("tradebox");
+
+                for (var item in items) {
+
+                    item = items[item];
+
+                    console.log(id)
+
+                    if (String(item.id) == String(id)) {
+
+                        item.remove();
+
+                        break;
+
+                    };
+
+                };    
+
+                trades[tradeid]["trade"][id] = null;
+                
+            };
+
+            updateValues();
+
+        };
+
+        function loadItems() {
+
+            var html_string = "";
+
+            for (var item_number in Data["vehicles"]) {
+
+                var item_data = Data["vehicles"][item_number];
+
+                html_string = html_string + `
+
+                    <div style="background-image: url(${item_data.image});" class="item">
+                        
+                        <h1>${item_data.name}</h1>
+
+                        <button onclick="addItem2('${item_number}')">Add</button>
+                        
+                    </div>
+                
+                `;
+
+            };
+
+            items.innerHTML = html_string;
+
+        };
+
+        loadItems();
+
+    </script>
 
 </body>
 </html>

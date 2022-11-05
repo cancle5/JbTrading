@@ -1,11 +1,11 @@
 {
 
     "vehicles": {
-      "1": {
+      "v1": {
         "name": "Brulee",
         "value": "123,123",
-        "valuehistory": "22 22 22 22",
-        "valuehistorydate": "22/22 22/22 22/22 22/22",
+        "valuehistory": "22 50 100",
+        "valuehistorydate": "7/12/22 7/22/22 10/26/22",
         "price": "500,000",
         "demand": "10/10",
         "rarity": "10/10",
@@ -13,18 +13,46 @@
         "description": "The Brulee, also known as the Bugatti Veyron, is the current fastest vehicle in jailbreak. It is really wanted due to its specifications and being unobtainable. This vehicle was available from June 4th, 2017 to March 8th, 2020 for 500,000 in-game cash next to the jewelry store and has since then been replaced with the Eclaire. Even though it has been available for quite a while, it is still in high demand. At that time, jailbreak currency was much more valuable due to it being harder to receive.<br><br>Performance: Its maximum speed is the fastest but nearly impossible to achieve. The acceleration is good but poor when trying to reach its top speed. It has good off-road capability, but it cannot climb steep terrain. Its braking is pretty poor compared to everything else, mostly due to its high speeds.<br><br>Rarity: The Brulee is actually very common. Many new players tend to overestimate its rarity and don't realize that it has been available for almost 3 years!<br><br>Demand: Its demand is extremely high. Many people want this vehicle due to its performance, but others just like collecting them. The Brulee is very unique compared to other vehicles and has a special design.",
         "image": "https://media.discordapp.net/attachments/1005873955632066590/1005874328501506068/New_Project_49.png"
       },
-      "2": {
-        "name": "Beignet",
+      "v2": {
+        "name": "Brulee",
         "value": "123,123",
+        "valuehistory": "22 50 100",
+        "valuehistorydate": "7/12/22 7/22/22 10/26/22",
+        "price": "500,000",
         "demand": "10/10",
         "rarity": "10/10",
-        "description": "TBD",
-        "image": "https://media.discordapp.net/attachments/1005873955632066590/1005881606688485406/New_Project_52.png"
+        "maxspeed": "255",
+        "description": "The Brulee, also known as the Bugatti Veyron, is the current fastest vehicle in jailbreak. It is really wanted due to its specifications and being unobtainable. This vehicle was available from June 4th, 2017 to March 8th, 2020 for 500,000 in-game cash next to the jewelry store and has since then been replaced with the Eclaire. Even though it has been available for quite a while, it is still in high demand. At that time, jailbreak currency was much more valuable due to it being harder to receive.<br><br>Performance: Its maximum speed is the fastest but nearly impossible to achieve. The acceleration is good but poor when trying to reach its top speed. It has good off-road capability, but it cannot climb steep terrain. Its braking is pretty poor compared to everything else, mostly due to its high speeds.<br><br>Rarity: The Brulee is actually very common. Many new players tend to overestimate its rarity and don't realize that it has been available for almost 3 years!<br><br>Demand: Its demand is extremely high. Many people want this vehicle due to its performance, but others just like collecting them. The Brulee is very unique compared to other vehicles and has a special design.",
+        "image": "https://media.discordapp.net/attachments/1005873955632066590/1005874328501506068/New_Project_49.png"
+      },
+      "v3": {
+        "name": "Brulee",
+        "value": "123,123",
+        "valuehistory": "22 50 100",
+        "valuehistorydate": "7/12/22 7/22/22 10/26/22",
+        "price": "500,000",
+        "demand": "10/10",
+        "rarity": "10/10",
+        "maxspeed": "255",
+        "description": "The Brulee, also known as the Bugatti Veyron, is the current fastest vehicle in jailbreak. It is really wanted due to its specifications and being unobtainable. This vehicle was available from June 4th, 2017 to March 8th, 2020 for 500,000 in-game cash next to the jewelry store and has since then been replaced with the Eclaire. Even though it has been available for quite a while, it is still in high demand. At that time, jailbreak currency was much more valuable due to it being harder to receive.<br><br>Performance: Its maximum speed is the fastest but nearly impossible to achieve. The acceleration is good but poor when trying to reach its top speed. It has good off-road capability, but it cannot climb steep terrain. Its braking is pretty poor compared to everything else, mostly due to its high speeds.<br><br>Rarity: The Brulee is actually very common. Many new players tend to overestimate its rarity and don't realize that it has been available for almost 3 years!<br><br>Demand: Its demand is extremely high. Many people want this vehicle due to its performance, but others just like collecting them. The Brulee is very unique compared to other vehicles and has a special design.",
+        "image": "https://media.discordapp.net/attachments/1005873955632066590/1005874328501506068/New_Project_49.png"
+      },
+      "v4": {
+        "name": "Brulee",
+        "value": "123,123",
+        "valuehistory": "22 50 100",
+        "valuehistorydate": "7/12/22 7/22/22 10/26/22",
+        "price": "500,000",
+        "demand": "10/10",
+        "rarity": "10/10",
+        "maxspeed": "255",
+        "description": "The Brulee, also known as the Bugatti Veyron, is the current fastest vehicle in jailbreak. It is really wanted due to its specifications and being unobtainable. This vehicle was available from June 4th, 2017 to March 8th, 2020 for 500,000 in-game cash next to the jewelry store and has since then been replaced with the Eclaire. Even though it has been available for quite a while, it is still in high demand. At that time, jailbreak currency was much more valuable due to it being harder to receive.<br><br>Performance: Its maximum speed is the fastest but nearly impossible to achieve. The acceleration is good but poor when trying to reach its top speed. It has good off-road capability, but it cannot climb steep terrain. Its braking is pretty poor compared to everything else, mostly due to its high speeds.<br><br>Rarity: The Brulee is actually very common. Many new players tend to overestimate its rarity and don't realize that it has been available for almost 3 years!<br><br>Demand: Its demand is extremely high. Many people want this vehicle due to its performance, but others just like collecting them. The Brulee is very unique compared to other vehicles and has a special design.",
+        "image": "https://media.discordapp.net/attachments/1005873955632066590/1005874328501506068/New_Project_49.png"
       }
     },
     
     "textures": {
-      "1": {
+      "t1": {
         "name": "Brulee",
         "value": "123,123",
         "demand": "10/10",
@@ -32,7 +60,7 @@
         "description": "TBD",
         "image": "https://media.discordapp.net/attachments/1005873955632066590/1005874328501506068/New_Project_49.png"
       },
-      "2": {
+      "t2": {
         "name": "Beignet",
         "value": "123,123",
         "demand": "10/10",
@@ -43,7 +71,7 @@
     },
 
     "colors": {
-      "1": {
+      "c1": {
         "name": "Brulee",
         "value": "123,123",
         "demand": "10/10",
@@ -51,7 +79,7 @@
         "description": "TBD",
         "image": "https://media.discordapp.net/attachments/1005873955632066590/1005874328501506068/New_Project_49.png"
       },
-      "2": {
+      "c2": {
         "name": "Beignet",
         "value": "123,123",
         "demand": "10/10",
