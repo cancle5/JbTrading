@@ -3,7 +3,7 @@ var DataSaveName = "JBValues_Datastore_Backup_V1";
 var CooldownSaveName = "JBValues_Datastore_Cooldown_V1";
 var FetchCooldown = 6000;
 
-var FetchKey = "L5TYP!A7epCdA?iStb@NtohSJME4xBCgPxxEcEKA"
+var FetchKey = "L5TYP!A7epCdA?iStb@NtohSJME4xBCgPxxEcEKA";
 
 var CurrentTime = new Date();
 CurrentTime = CurrentTime.getTime();
@@ -24,7 +24,7 @@ if (localStorage[DataSaveName] == null || localStorage[DataSaveName] == undefine
 
             console.log("New data fetched.");
     
-        })
+        });
 
     } catch (error) {
 
@@ -41,7 +41,7 @@ else {
 
         localStorage[CooldownSaveName] = 1;
 
-    };    
+    } 
 
     if ((CurrentTime - localStorage[CooldownSaveName]) > FetchCooldown) {
 
@@ -56,8 +56,10 @@ else {
         
                 localStorage[DataSaveName] = JSON.stringify(output);
                 localStorage[CooldownSaveName] = CurrentTime;
+
+                console.log("New data fetched.");
         
-            })
+            });
     
         } catch (error) {
     
@@ -70,6 +72,6 @@ else {
 
         console.log("Backup data found.");
 
-    };
+    }
 
-};
+}

@@ -66,11 +66,6 @@
     <script src="/scripts/datahandler.js"></script>
     <script defer>
 
-        while (true) {
-            if (localStorage[DataSaveName] !== undefined) break;
-            new Promise(resolve => setTimeout(resolve, 500));
-        }
-
         const Data = JSON.parse(localStorage[DataSaveName]);
 
         const trades = {
