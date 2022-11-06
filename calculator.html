@@ -176,7 +176,7 @@
 
                 };    
 
-                trades[tradeid]["trade"][id] = null;
+                trades[tradeid]["trade"].splice(trades[tradeid]["trade"].indexOf(id), 1)
                 
             };
 
