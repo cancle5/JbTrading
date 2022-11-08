@@ -16,8 +16,6 @@
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/styles/values.css">
 
-    <script src="https://kit.fontawesome.com/d6662714f9.js" crossorigin="anonymous"></script>
-
 </head>
 <body>
 
@@ -49,7 +47,7 @@
     <script src="/scripts/datahandler.js"></script>
     <script defer>
 
-        const page_navbar = document.getElementsByClassName("page-navbar")[0];
+const page_navbar = document.getElementsByClassName("page-navbar")[0];
         const search_box = document.getElementsByClassName("search-box")[0];
         const page_items = document.getElementsByClassName("page-items")[0];
 
@@ -87,13 +85,13 @@
                     
                     `;
 
-                };
+                }
 
                 page_items.innerHTML = html_string;
 
             }
 
-        };
+        }
 
         if (Data[queryString]) {
 
@@ -102,11 +100,11 @@
             if (document.getElementById(queryString)) {
                 if (document.getElementById(queryString).tagName == "A") {
 
-                    document.getElementById(queryString).style.color = "rgb(89, 161, 255)"
-                    document.getElementById(queryString).style.transition = "all 0.5s ease-in"
+                    document.getElementById(queryString).style.color = "rgb(89, 161, 255)";
+                    document.getElementById(queryString).style.transition = "all 0.5s ease-in";
 
-                };
-            };
+                }
+            }
 
         }
         else {
@@ -116,13 +114,13 @@
             if (document.getElementById("vehicles")) {
                 if (document.getElementById("vehicles").tagName == "A") {
 
-                    document.getElementById("vehicles").style.color = "rgb(89, 161, 255)"
-                    document.getElementById("vehicles").style.transition = "all 0.5s ease-in"
+                    document.getElementById("vehicles").style.color = "rgb(89, 161, 255)";
+                    document.getElementById("vehicles").style.transition = "all 0.5s ease-in";
 
-                };
-            };
+                }
+            }
 
-        };
+        }
 
     </script>
 
