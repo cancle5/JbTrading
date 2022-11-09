@@ -47,80 +47,89 @@
     <script src="/scripts/datahandler.js"></script>
     <script defer>
 
-        const page_navbar = document.getElementsByClassName("page-navbar")[0];
-        const search_box = document.getElementsByClassName("search-box")[0];
-        const page_items = document.getElementsByClassName("page-items")[0];
+        var interval = setInterval(function() {
 
-        const Data = JSON.parse(localStorage[DataSaveName]);
+        if ( localStorage[DataSaveName] !== undefined ){
 
-        var queryString = window.location.href ? window.location.href.split('?')[1] : window.location.search.slice(1);
+            clearInterval(interval);
 
-        function loadPage(name) {
+            const page_navbar = document.getElementsByClassName("page-navbar")[0];
+            const search_box = document.getElementsByClassName("search-box")[0];
+            const page_items = document.getElementsByClassName("page-items")[0];
 
-            var page_data = Data[name];
+            const Data = JSON.parse(localStorage[DataSaveName]);
 
-            if (page_data != null && page_data != undefined) {
+            var queryString = window.location.href ? window.location.href.split('?')[1] : window.location.search.slice(1);
 
-                var html_string = "";
+            function loadPage(name) {
 
-                for (var page_item in page_data) {
+                var page_data = Data[name];
 
-                    page_item = page_data[page_item];
+                if (page_data != null && page_data != undefined) {
 
-                    html_string = html_string + `
-                    
-                        <div class="page-item">
+                    var html_string = "";
 
-                            <h1>${page_item.name}</h1>
+                    for (var page_item in page_data) {
 
-                            <img src="${page_item.image}" alt="Name">
+                        page_item = page_data[page_item];
 
-                            <p>Value: ${page_item.value}</p>
+                        html_string = html_string + `
+                        
+                            <div class="page-item">
 
-                            <a href="${"/values/" + page_item.name.toLowerCase()}">
-                                <button>View More</button>
-                            </a>
+                                <h1>${page_item.name}</h1>
 
-                        </div>
-                    
-                    `;
+                                <img src="${page_item.image}" alt="Name">
+
+                                <p>Value: ${page_item.value}</p>
+
+                                <a href="${"/values/" + page_item.name.toLowerCase()}">
+                                    <button>View More</button>
+                                </a>
+
+                            </div>
+                        
+                        `;
+
+                    }
+
+                    page_items.innerHTML = html_string;
 
                 }
 
-                page_items.innerHTML = html_string;
+            }
+
+            if (Data[queryString]) {
+
+                loadPage(queryString);
+
+                if (document.getElementById(queryString)) {
+                    if (document.getElementById(queryString).tagName == "A") {
+
+                        document.getElementById(queryString).style.color = "rgb(89, 161, 255)";
+                        document.getElementById(queryString).style.transition = "all 0.5s ease-in";
+
+                    }
+                }
+
+            }
+            else {
+
+                loadPage("vehicles");
+
+                if (document.getElementById("vehicles")) {
+                    if (document.getElementById("vehicles").tagName == "A") {
+
+                        document.getElementById("vehicles").style.color = "rgb(89, 161, 255)";
+                        document.getElementById("vehicles").style.transition = "all 0.5s ease-in";
+
+                    }
+                }
 
             }
 
         }
-
-        if (Data[queryString]) {
-
-            loadPage(queryString);
-
-            if (document.getElementById(queryString)) {
-                if (document.getElementById(queryString).tagName == "A") {
-
-                    document.getElementById(queryString).style.color = "rgb(89, 161, 255)";
-                    document.getElementById(queryString).style.transition = "all 0.5s ease-in";
-
-                }
-            }
-
-        }
-        else {
-
-            loadPage("vehicles");
-
-            if (document.getElementById("vehicles")) {
-                if (document.getElementById("vehicles").tagName == "A") {
-
-                    document.getElementById("vehicles").style.color = "rgb(89, 161, 255)";
-                    document.getElementById("vehicles").style.transition = "all 0.5s ease-in";
-
-                }
-            }
-
-        }
+        }, 100);
 
     </script>
 
