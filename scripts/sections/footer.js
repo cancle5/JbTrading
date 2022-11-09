@@ -46,9 +46,7 @@ var string = `
                     <span style="padding-right: 10px;">Privacy Policy</span>
                 </a>
 
-                <a href="">
-                    <span style="padding-right: 10px;">Do Not Sell My Personal Information</span>
-                </a>
+                <span data-ccpa-link="1"></span>
 
             </div>
         
