@@ -67,13 +67,11 @@
 
                 if (page_data != null && page_data != undefined) {
 
-                    var html_string = "";
-
                     for (var page_item in page_data) {
 
                         page_item = page_data[page_item];
 
-                        html_string = html_string + `
+                        var html_string = `
                         
                             <div class="page-item">
 
@@ -91,9 +89,9 @@
                         
                         `;
 
-                    }
+                        page_items.innerHTML = page_items.innerHTML + html_string;
 
-                    page_items.innerHTML = html_string;
+                    }
 
                 }
 
