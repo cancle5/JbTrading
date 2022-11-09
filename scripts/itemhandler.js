@@ -56,7 +56,7 @@ if (ItemData != null && ItemData != undefined) {
 
     Header1.innerHTML = ItemData["name"];
     Text1.innerHTML = ItemData["description"];
-    Image1.innerHTML = '<img src="' + ItemData["image"] + '" alt="Item_Name"></img>';
+    Image1.innerHTML = '<img src="' + ItemData["image"] + '" alt="' + ItemData["name"] + '"></img>';
 
     Value.innerHTML = "Value: " + ItemData["value"];
     Price.innerHTML = "Price: " + ItemData["price"];
