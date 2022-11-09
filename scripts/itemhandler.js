@@ -11,12 +11,14 @@ const Demand = document.getElementById("Demand");
 const ItemCategory = document.getElementById("ItemCategory").getAttribute("value");
 const ItemName = document.getElementById("ItemNumber").getAttribute("value");
 
-console.log(DataSaveName)
+const MetaTags = document.head.getElementsByTagName("meta");
+
+console.log(DataSaveName);
 
 const Data = JSON.parse(localStorage[DataSaveName]);
 const ItemData = Data[ItemCategory][ItemName];
 
-console.log(ItemData)
+console.log(ItemData);
 
 const displayChart = () => {
 
@@ -63,8 +65,34 @@ if (ItemData != null && ItemData != undefined) {
 
     displayChart();
 
+    document.getElementsByTagName("title")[0].innerHTML = "JB Values - " + ItemData["name"];
+
+    for (var Tag in MetaTags) {
+
+        Tag = MetaTags[Tag];
+
+        if (Tag.name == "title") {
+
+            Tag.content = "JB Values - " + ItemData["name"];
+
+        }
+
+        if (Tag.name == "description") {
+
+            Tag.content = ItemData["description"];
+
+        }
+
+        if (Tag.name == "keywords") {
+
+            Tag.content = "roblox jailbreak " + ItemData["name"];
+
+        }
+
+    }    
+
 } else {
 
     console.warn("Failed to load item.");
 
-};
+}
