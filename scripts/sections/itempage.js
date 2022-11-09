@@ -6,7 +6,7 @@ var string = `
 
      <h1 id="Header1">Name</h1>
 
-     <img src="https://media.discordapp.net/attachments/1005873955632066590/1005874328501506068/New_Project_49.png" alt="Item_Name">
+     <div id="Image"></div>
 
      <div class="box-wide-information">
 

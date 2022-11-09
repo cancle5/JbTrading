@@ -1,6 +1,6 @@
 const Header1 = document.getElementById("Header1");
 const Text1 = document.getElementById("Text");
-const Image1 = document.getElementById("Image1");
+const Image1 = document.getElementById("Image");
 
 const Value = document.getElementById("Value");
 const Price = document.getElementById("Price");
@@ -56,6 +56,7 @@ if (ItemData != null && ItemData != undefined) {
 
     Header1.innerHTML = ItemData["name"];
     Text1.innerHTML = ItemData["description"];
+    Image1.innerHTML = '<img src="' + ItemData["image"] + '" alt="Item_Name"></img>';
 
     Value.innerHTML = "Value: " + ItemData["value"];
     Price.innerHTML = "Price: " + ItemData["price"];
